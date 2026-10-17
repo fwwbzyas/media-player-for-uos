@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Media Player for UOS
+Name=Media Player
 Comment=Play audio and video files on UOS
 Exec=media-player-for-uos %U
 Icon=media-player-for-uos

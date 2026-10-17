@@ -217,8 +217,6 @@ MainWindow::MainWindow(QWidget *parent)
 
         media_player.setSource(cur_url);
         //qDebug() << "source: " << media_player.source().toString().toStdString();
-		playlist.add(QUrl("file:///tmp/[感知推荐] Love Story.mp3"));
-		playlist.add(QUrl("file:///tmp/[感知推荐]I Guess I Just Feel Like.mp3"));
     });
 
     connect(ui->actionOpen_File, &QAction::triggered, [=]() {

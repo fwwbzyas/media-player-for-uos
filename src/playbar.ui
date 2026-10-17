@@ -176,7 +176,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/sound_2.svg</normaloff>:/images/sound_2.svg</iconset>
         </property>
         <property name="checkable">
@@ -246,7 +246,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/shuffle.svg</normaloff>:/images/shuffle.svg</iconset>
         </property>
         <property name="checkable">
@@ -266,7 +266,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/rewind.svg</normaloff>:/images/rewind.svg</iconset>
         </property>
        </widget>
@@ -283,7 +283,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/play.svg</normaloff>:/images/play.svg</iconset>
         </property>
        </widget>
@@ -300,7 +300,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/forward.svg</normaloff>:/images/forward.svg</iconset>
         </property>
        </widget>
@@ -311,7 +311,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/repeat.svg</normaloff>:/images/repeat.svg</iconset>
         </property>
         <property name="checkable">
@@ -393,7 +393,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/robot.svg</normaloff>:/images/robot.svg</iconset>
         </property>
        </widget>
@@ -404,7 +404,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/setting.svg</normaloff>:/images/setting.svg</iconset>
         </property>
         <property name="checkable">
@@ -418,7 +418,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="qss.qrc">
+         <iconset resource="../resources/qss.qrc">
           <normaloff>:/images/playlist.svg</normaloff>:/images/playlist.svg</iconset>
         </property>
         <property name="checkable">
@@ -432,7 +432,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="qss.qrc"/>
+  <include location="../resources/qss.qrc"/>
  </resources>
  <connections/>
 </ui>

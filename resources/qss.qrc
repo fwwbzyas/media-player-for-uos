@@ -1,28 +1,21 @@
 <RCC>
     <qresource prefix="/">
+        <file>icons/icon.png</file>
         <file>images/edit_clear.svg</file>
-        <file>images/eject.svg</file>
-        <file>images/end.svg</file>
-        <file>images/file.svg</file>
         <file>images/file_folder.svg</file>
         <file>images/forward.svg</file>
         <file>images/pause.svg</file>
         <file>images/play.svg</file>
         <file>images/playlist.svg</file>
-        <file>images/record.svg</file>
         <file>images/refresh.svg</file>
-        <file>images/resume_button.svg</file>
         <file>images/rewind.svg</file>
         <file>images/setting.svg</file>
         <file>images/shuffle.svg</file>
-        <file>images/skip_back_15.svg</file>
-        <file>images/skip_to_start.svg</file>
         <file>images/sound_0.svg</file>
         <file>images/sound_1.svg</file>
         <file>images/sound_2.svg</file>
         <file>images/sound_3.svg</file>
         <file>images/sound_mute.svg</file>
-        <file>images/stop.svg</file>
         <file>images/repeat.svg</file>
         <file>images/robot.svg</file>
     </qresource>

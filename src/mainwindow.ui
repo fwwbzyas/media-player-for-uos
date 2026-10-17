@@ -141,7 +141,7 @@
   </widget>
   <action name="actionOpen_File">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/file_folder.svg</normaloff>:/images/file_folder.svg</iconset>
    </property>
    <property name="text">
@@ -150,7 +150,7 @@
   </action>
   <action name="actionPlay">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/play.svg</normaloff>:/images/play.svg</iconset>
    </property>
    <property name="text">
@@ -159,7 +159,7 @@
   </action>
   <action name="actionStop">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/pause.svg</normaloff>:/images/pause.svg</iconset>
    </property>
    <property name="text">
@@ -184,7 +184,7 @@
   </action>
   <action name="actionIncreace_Volume">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/sound_3.svg</normaloff>:/images/sound_3.svg</iconset>
    </property>
    <property name="text">
@@ -193,7 +193,7 @@
   </action>
   <action name="actionDecrease_Volume">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/sound_1.svg</normaloff>:/images/sound_1.svg</iconset>
    </property>
    <property name="text">
@@ -202,7 +202,7 @@
   </action>
   <action name="actionMute">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/sound_mute.svg</normaloff>:/images/sound_mute.svg</iconset>
    </property>
    <property name="text">
@@ -227,7 +227,7 @@
   </action>
   <action name="actionPreference">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/setting.svg</normaloff>:/images/setting.svg</iconset>
    </property>
    <property name="text">
@@ -241,7 +241,7 @@
   </action>
   <action name="actionPlaylist">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/playlist.svg</normaloff>:/images/playlist.svg</iconset>
    </property>
    <property name="text">
@@ -250,7 +250,7 @@
   </action>
   <action name="actionLoopStatus">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/repeat.svg</normaloff>:/images/repeat.svg</iconset>
    </property>
    <property name="text">
@@ -259,7 +259,7 @@
   </action>
   <action name="actionRandom">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/shuffle.svg</normaloff>:/images/shuffle.svg</iconset>
    </property>
    <property name="text">
@@ -268,7 +268,7 @@
   </action>
   <action name="actionBackward">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/rewind.svg</normaloff>:/images/rewind.svg</iconset>
    </property>
    <property name="text">
@@ -277,7 +277,7 @@
   </action>
   <action name="actionForward">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/forward.svg</normaloff>:/images/forward.svg</iconset>
    </property>
    <property name="text">
@@ -286,7 +286,7 @@
   </action>
   <action name="actionFeeling">
    <property name="icon">
-    <iconset resource="qss.qrc">
+    <iconset resource="../resources/qss.qrc">
      <normaloff>:/images/robot.svg</normaloff>:/images/robot.svg</iconset>
    </property>
    <property name="text">
@@ -295,7 +295,7 @@
   </action>
  </widget>
  <resources>
-  <include location="qss.qrc"/>
+  <include location="../resources/qss.qrc"/>
  </resources>
  <connections/>
 </ui>

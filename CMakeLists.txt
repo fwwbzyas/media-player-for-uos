@@ -21,12 +21,12 @@ add_subdirectory(src)
 include(GNUInstallDirs)
 
 install(
-    FILES packaging/linux/media-player-for-uos.desktop
+    FILES "packaging/Media Player.desktop"
     DESTINATION ${CMAKE_INSTALL_DATADIR}/applications
 )
 
 install(
-    FILES resources/icons/icon.jpeg
+    FILES resources/icons/icon.png
     DESTINATION ${CMAKE_INSTALL_DATADIR}/pixmaps
-    RENAME media-player-for-uos.jpeg
+    RENAME media-player-for-uos.png
 )

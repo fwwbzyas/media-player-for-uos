@@ -18,8 +18,6 @@ set(APP_SOURCES
     modelchat.cpp
     modelchat.h
     modelchat.ui
-    grableprogressbar.cpp
-    grableprogressbar.h
     mytimeformater.cpp
     mytimeformater.h
     ../resources/qss.qrc
