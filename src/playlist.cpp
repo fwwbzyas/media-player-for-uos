@@ -3,6 +3,10 @@
 
 #include	<QDebug>
 #include <QListWidgetItem>
+#include <QAction>
+#include <QMenu>
+#include <QFileInfo>
+#include <QSignalBlocker>
 #include <QRandomGenerator>
 #include	<QTimer>
 #include	<QFile>
@@ -14,31 +18,30 @@ PlayList::PlayList(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // QTimer *qsstimer = new QTimer();
-    // qsstimer->setInterval(1000);
-    // qsstimer->setSingleShot(false);
-    // connect(qsstimer, &QTimer::timeout, [=]() {
-        // QString filepath("./qss/dark/%1.qss");
-        // filepath = filepath.arg("playlist");
-
-        // QFile qssfile(filepath);
-        // if (qssfile.open(QFile::ReadOnly)) {
-            // QString s = QLatin1String(qssfile.readAll());
-            // this->setStyleSheet(s);
-            // qDebug() << filepath << ": updated Style";
-        // } else {
-            // if (qssfile.open(QFile::WriteOnly))
-                // qssfile.close();
-            // qDebug() << filepath << "failed to update Style";
-        // }
-    // });
-    // qsstimer->start();
-
+    auto *removeAction = new QAction(tr("从列表移除"), this);
+    removeAction->setShortcut(QKeySequence(Qt::Key_Delete));
+    removeAction->setShortcutContext(Qt::WidgetShortcut);
+    ui->listWidget->addAction(removeAction);
+    connect(removeAction, &QAction::triggered, this, [this] { remove(); });
+    ui->listWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->listWidget, &QWidget::customContextMenuRequested, this,
+            [this, removeAction](const QPoint &position) {
+        auto *item = ui->listWidget->itemAt(position);
+        if (!item)
+            return;
+        ui->listWidget->setCurrentItem(item);
+        QMenu menu(this);
+        menu.addAction(removeAction);
+        menu.exec(ui->listWidget->viewport()->mapToGlobal(position));
+    });
+    auto *missingFileTimer = new QTimer(this);
+    missingFileTimer->setInterval(2000);
+    connect(missingFileTimer, &QTimer::timeout, this, &PlayList::removeMissingFiles);
+    missingFileTimer->start();
 
     connect(ui->listWidget, &QListWidget::currentRowChanged, [&](int row) {
-        if (row == -1)
-            return;
-        emit selectedChanged(ui->listWidget->item(row)->data(Qt::UserRole).toUrl());
+        Q_UNUSED(row);
+        emit selectedChanged(current());
     });
 }
 
@@ -46,18 +49,6 @@ PlayList::~PlayList()
 {
     delete ui;
 }
-
-// void PlayList::shuffle() {
-    // for (auto url: urls) {
-        // QListWidgetItem *item = new QListWidgetItem();
-        // item->setText(url.fileName());
-        // item->setData(Qt::UserRole, url.toString());
-
-        // ui->listWidget->addItem(item);
-        // if (!_last_item_text.isNull() && !_last_item_text.isEmpty() && _last_item_text == url.toString())
-            // ui->listWidget->setCurrentRow(ui->listWidget->count() - 1);
-    // }
-// }
 
 void PlayList::next() {
     if (ui->listWidget->count() == 0)
@@ -95,7 +86,9 @@ QUrl PlayList::current() {
 }
 
 void PlayList::add(QUrl url) {
-    urls.append(url);
+    if (url.isEmpty() || !url.isValid() ||
+        (url.isLocalFile() && !QFileInfo::exists(url.toLocalFile())))
+        return;
 
 
     QListWidgetItem *item = new QListWidgetItem();
@@ -107,4 +100,41 @@ void PlayList::add(QUrl url) {
     } else {
         ui->listWidget->addItem(item);
     }
+}
+
+int PlayList::count() const {
+    return ui->listWidget->count();
+}
+
+QUrl PlayList::remove() {
+    const int row = ui->listWidget->currentRow();
+    if (row < 0)
+        return {};
+    const QUrl removed = current();
+    {
+        const QSignalBlocker blocker(ui->listWidget);
+        delete ui->listWidget->takeItem(row);
+        ui->listWidget->setCurrentRow(-1);
+    }
+    emit selectedChanged(QUrl());
+    return removed;
+}
+
+void PlayList::removeMissingFiles() {
+    const QUrl before = current();
+    {
+        const QSignalBlocker blocker(ui->listWidget);
+        bool removedCurrent = false;
+        for (int row = count() - 1; row >= 0; --row) {
+            const QUrl url = ui->listWidget->item(row)->data(Qt::UserRole).toUrl();
+            if (url.isLocalFile() && !QFileInfo::exists(url.toLocalFile())) {
+                removedCurrent |= row == ui->listWidget->currentRow();
+                delete ui->listWidget->takeItem(row);
+            }
+        }
+        if (removedCurrent)
+            ui->listWidget->setCurrentRow(-1);
+    }
+    if (before != current())
+        emit selectedChanged(current());
 }

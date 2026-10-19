@@ -24,9 +24,8 @@ public:
     void add(QUrl url);
     QUrl remove();
 
-    int count() {
-        return urls.count();
-    }
+    int count() const;
+    void removeMissingFiles();
 
 public slots:
     void set_loop(bool v) {
@@ -66,7 +65,7 @@ signals:
 
 private:
     Ui::PlayList *ui;
-    QList<QUrl> urls;
+
     bool loop = false;
     bool shuffle = false;
 };
